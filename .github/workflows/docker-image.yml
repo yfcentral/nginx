@@ -15,4 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --tag nginx:$(date +%s)
+      run: 
+        | 
+        PATH=pwd
+        docker build . --tag --file $PATH/DockerFile nginx:$(date +%s)
